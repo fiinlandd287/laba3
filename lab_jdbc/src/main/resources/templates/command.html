@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Table Results</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a2e;
+            color: #eaeaea;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: #00d9ff;
+            text-shadow: 0 0 20px #00d9ff;
+            margin-bottom: 20px;
+        }
+
+        .results {
+            background-color: #2e2e4e;  /* Темно-серый цвет фона */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 800px;
+            overflow-x: auto;
+            text-align: left;
+            color: #eaeaea;  /* Светлый цвет текста */
+        }
+
+        .results table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .results th, .results td {
+            padding: 12px;
+            border: 1px solid #444;
+            text-align: left;
+        }
+
+        .results th {
+            background-color: #00d9ff;
+            color: #1a1a2e;
+            font-weight: bold;
+        }
+
+        .results td {
+            background-color: #3e3e5e;  /* Цвет фона ячеек */
+        }
+
+        a {
+            color: #00d9ff;
+            font-size: 1.2em;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0096c7;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .results {
+                padding: 15px;
+            }
+
+            a {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Table Command</h1>
+<div class="results" th:utext="${commandResults}">
+    <!-- The command results (likely a table) will be rendered here -->
+</div>
+<a href="/select-table">Back to Selection</a>
+</body>
+</html>

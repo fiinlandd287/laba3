@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Delete Sportsman</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            background-color: #1a1a2e;
+            color: #eaeaea;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: #00d9ff;
+            text-shadow: 0 0 20px #00d9ff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            background-color: #2e2e4e;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        input {
+            margin: 12px 0;
+            padding: 12px;
+            border: 1px solid #00d9ff;
+            border-radius: 6px;
+            width: 100%;
+            font-size: 1em;
+            box-sizing: border-box;
+            background-color: #1a1a2e;
+            color: #eaeaea;
+        }
+
+        button {
+            background: linear-gradient(45deg, #00d9ff, #0096c7);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 217, 255, 0.4);
+            transition: all 0.3s ease;
+            min-width: 180px;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #0096c7, #00d9ff);
+            box-shadow: 0 6px 20px rgba(0, 217, 255, 0.6);
+            transform: translateY(-3px);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 15px rgba(0, 217, 255, 0.4);
+        }
+
+        .back-link {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #00d9ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #0096c7;
+        }
+
+        .message {
+            color: green;
+            margin-top: 20px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .error {
+            color: red;
+            margin-top: 20px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            form {
+                padding: 20px;
+                width: 90%;
+            }
+
+            input, button {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Delete Sportsman</h1>
+<form th:action="@{/sportsman-delete}" method="post">
+    <input type="number" name="sportsman_id" placeholder="Enter Sportsman ID" required />
+    <button type="submit">Delete Sportsman</button>
+</form>
+
+<a class="back-link" href="/">Back to Home</a>
+
+<div th:if="${message}" th:text="${message}" class="message"></div>
+<div th:if="${errorMessage}" th:text="${errorMessage}" class="error"></div>
+</body>
+</html>

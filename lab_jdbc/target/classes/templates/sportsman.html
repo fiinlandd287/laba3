@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Table Results</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            background-color: #1a1a2e; /* Темный фон для страницы */
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ecf0f1; /* Светлый текст */
+            padding: 20px;
+        }
+
+        h1 {
+            color: #00d9ff; /* Яркий цвет для заголовка */
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(0, 217, 255, 0.6); /* Эффект свечения */
+        }
+
+        .results {
+            background-color: #2e2e4e; /* Темно-серый фон для блока */
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            width: 80%;
+            max-width: 900px;
+            overflow-x: auto; /* Для удобства просмотра больших таблиц */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333; /* Темный фон для заголовков */
+        }
+
+        td {
+            background-color: #444; /* Темный фон для ячеек */
+        }
+
+        a {
+            color: #00d9ff; /* Яркая ссылка */
+            font-size: 1.2em;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #0096c7; /* Более темный оттенок при наведении */
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .results {
+                width: 90%;
+                padding: 20px;
+            }
+
+            a {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Table Sportsman</h1>
+<div class="results" th:utext="${sportsmanResults}"></div>
+<a href="/select-table">Back to Selection</a>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SQL Executor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a2e;
+            color: #eaeaea;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #00d9ff;
+            text-shadow: 0 0 15px #00d9ff;
+            margin-bottom: 20px;
+        }
+
+        .sql-form {
+            width: 100%;
+            max-width: 600px;
+            background-color: #2e2e4e;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1em;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            background-color: #3e3e5e;
+            color: #eaeaea;
+            resize: vertical;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        textarea:focus {
+            border-color: #00d9ff;
+            box-shadow: 0 0 8px rgba(0, 217, 255, 0.8);
+            outline: none;
+        }
+
+        .sql-submit {
+            background-color: #00d9ff;
+            color: #1a1a2e;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 217, 255, 0.5);
+        }
+
+        .sql-submit:hover {
+            background-color: #0096c7;
+            box-shadow: 0 5px 15px rgba(0, 150, 199, 0.7);
+        }
+
+        .sql-submit:active {
+            background-color: #007494;
+        }
+
+        a {
+            color: #00d9ff;
+            margin-top: 15px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #0096c7;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            textarea {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+
+            .sql-submit {
+                font-size: 0.9em;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>SQL Query Executor</h1>
+
+<form action="/execute-sql" method="post" class="sql-form">
+    <textarea name="sqlQuery" placeholder="Enter your SQL query here..." required></textarea>
+
+    <!-- CSRF token (uncomment for Thymeleaf templates) -->
+    <!-- <input type="hidden" name="_csrf" th:value="${_csrf.token}" /> -->
+
+    <button type="submit" class="sql-submit">Run Query</button>
+</form>
+
+<a href="/" th:href="@{/}">Back to Home</a>
+
+</body>
+</html>

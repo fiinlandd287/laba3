@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Championat Record</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a2e;
+            color: #eaeaea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: #00d9ff;
+            text-shadow: 0 0 20px #00d9ff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            background-color: #2e2e4e;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            margin: 12px 0;
+            padding: 12px;
+            border: 2px solid #00d9ff;
+            border-radius: 8px;
+            width: 100%;
+            font-size: 1em;
+            background-color: #1a1a2e;
+            color: #eaeaea;
+            box-sizing: border-box;
+        }
+
+        input::placeholder {
+            color: #6c6c8c;
+        }
+
+        button {
+            background: linear-gradient(45deg, #00d9ff, #0096c7);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 217, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #0096c7, #00d9ff);
+            box-shadow: 0 6px 20px rgba(0, 217, 255, 0.6);
+            transform: translateY(-3px);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 15px rgba(0, 217, 255, 0.4);
+        }
+
+        .back-link {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #00d9ff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #0096c7;
+        }
+
+        .message {
+            color: #00ff9f;
+            margin-top: 20px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            form {
+                padding: 20px;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Edit Championat Record</h1>
+<form th:action="@{/chempionat-edit}" method="post">
+    <input type="number" name="chempionat_id" placeholder="Enter Id" required />
+    <input type="text" name="chempionat_name" placeholder="Enter Name" required />
+    <input type="number" name="chempionat_year" placeholder="Enter Year" required />
+    <button type="submit">Update</button>
+</form>
+
+<a class="back-link" href="/">Back to Home</a>
+
+<div th:if="${message}" th:text="${message}" class="message"></div>
+</body>
+</html>
